@@ -158,7 +158,7 @@ export function FileDialog() {
 								<Loader2Icon className="absolute top-1/2 left-1/2 w-8 h-8 -ml-4 -mt-4 animate-spin" />
 							</div>
 							<picture
-								className="flex items-center justify-center h-[inherit]"
+								className="flex items-center justify-center h-[inherit] file-image"
 								ref={imageZoomContainerRef}
 							>
 								<img
@@ -172,7 +172,7 @@ export function FileDialog() {
 							</picture>
 						</>
 					) : isFileVideo(selectedFile) ? (
-						<MediaController className="h-full w-full">
+						<MediaController className="h-full w-full file-video">
 							<video slot="media" src={selectedFile.url} crossOrigin="" className="h-full" />
 							<MediaControlBar>
 								<MediaPlayButton />
@@ -184,7 +184,7 @@ export function FileDialog() {
 							</MediaControlBar>
 						</MediaController>
 					) : isFileAudio(selectedFile) ? (
-						<MediaController className="w-full min-w-96 h-full">
+						<MediaController className="w-full min-w-96 h-full file-audio">
 							<audio slot="media" src={selectedFile.url} crossOrigin="" />
 							<MediaControlBar>
 								<MediaPlayButton />
@@ -196,7 +196,7 @@ export function FileDialog() {
 							</MediaControlBar>
 						</MediaController>
 					) : (
-						<div className="h-full w-full">
+						<div className="h-full w-full file-text">
 							<FileTextViewer uuid={selectedFile.uuid} />
 						</div>
 					)}
