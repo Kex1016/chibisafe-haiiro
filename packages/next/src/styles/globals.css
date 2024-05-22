@@ -4,22 +4,22 @@
 
 @layer base {
 	:root {
-		--background: 224 71% 4%;
-		--foreground: 213 31% 91%;
+		--background: 0 0% 4.7%;
+		--foreground: 0 0% 97.6%;
 
 		--background-transparent: var(--background) / 0.8;
 
-		--muted: 223 47% 11%;
-		--muted-foreground: 215.4 16.3% 56.9%;
+		--muted: 0 0% 0%;
+		--muted-foreground: 0 0% 28.63%;
 
-		--accent: 216 34% 17%;
-		--accent-foreground: 210 40% 98%;
+		--accent: var(--muted-foreground);
+		--accent-foreground: var(--foreground);
 
 		--popover: 224 71% 4%;
 		--popover-foreground: 215 20.2% 65.1%;
 
-		--border: 216 34% 17%;
-		--input: 216 34% 17%;
+		--border: var(--foreground);
+		--input: var(--muted-foreground);
 
 		--card: 224 71% 4%;
 		--card-foreground: 213 31% 91%;
@@ -27,28 +27,65 @@
 		--primary: 210 40% 98%;
 		--primary-foreground: 222.2 47.4% 1.2%;
 
-		--secondary: 222.2 47.4% 11.2%;
-		--secondary-foreground: 210 40% 98%;
+		--secondary: var(--accent);
+		--secondary-foreground: var(--accent-foreground);
 
 		--destructive: 0 63% 31%;
 		--destructive-foreground: 210 40% 98%;
 
 		--ring: 216 34% 17%;
 
-		--radius: 0.5rem;
+		--radius: 10px;
 	}
 
 	.blueprint {
-		background-image: linear-gradient(rgba(100, 100, 100, 0.1) 1px, transparent 1px),
-			linear-gradient(90deg, rgba(100, 100, 100, 0.1) 1px, transparent 1px),
-			linear-gradient(rgba(100, 100, 100, 0.1) 1px, transparent 1px),
-			linear-gradient(90deg, rgba(100, 100, 100, 0.1) 1px, transparent 1px);
+		background-image: linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+			linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+			linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+			linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
 		background-size:
 			20px 20px,
 			20px 20px,
 			20px 20px,
 			20px 20px;
 		background-position: 50% 50%;
+	}
+
+	.global-dropzone-border {
+		background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='10' ry='10' stroke='%23f9f9f9' stroke-width='3' stroke-dasharray='6%2c8' stroke-dashoffset='0' stroke-linecap='round'/%3e%3c/svg%3e") !important;
+	}
+
+	.global-dropzone-border > div:hover {
+		background-color: hsla(var(--accent) / 15%) !important;
+	}
+
+	article:hover > div > div > p {
+		color: hsl(var(--foreground)) !important;
+		font-style: italic;
+	}
+
+	.relative.w-full.h-auto.transition-all.duration-200.hover\:duration-150.outline.outline-transparent.hover\:z-40.after\:absolute.after\:-inset-0.after\:bg-gradient-to-t.after\:from-\[rgb\(4_21_47_\/_0\.5\)\].after\:via-\[rgb\(19_36_61_\/_0\.1\)\].after\:content-\[\'\'\].after\:pointer-events-none.group.md\:hover\:scale-105.md\:hover\:outline-4.md\:hover\:outline-\[hsl\(216_77\%_45\%\)\].hover\:after\:from-transparent.hover\:after\:via-transparent::after {
+		/* --tw-gradient-to: hsla(var(--muted-foreground) / 0%) var(--tw-gradient-to-position);
+    --tw-gradient-stops: var(--tw-gradient-from), hsla(var(--muted-foreground) / 10%) var(--tw-gradient-via-position),var(--tw-gradient-to);
+    --tw-gradient-from: hsla(var(--muted-foreground) / 50%) var(--tw-gradient-from-position); */
+		--tw-gradient-to: unset;
+		--tw-gradient-stops: unset;
+		--tw-gradient-from: unset;
+	}
+
+	footer {
+		border-color: hsla(var(--foreground) / 10%);
+	}
+
+	.file-text {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	.file-text > div {
+		height: auto;
+		max-height: calc(100vh - 50px);
 	}
 }
 
@@ -59,7 +96,9 @@
 
 	body {
 		@apply bg-background text-foreground;
-		font-feature-settings: "rlig" 1, "calt" 1;
+		font-feature-settings:
+			'rlig' 1,
+			'calt' 1;
 	}
 }
 
@@ -71,7 +110,7 @@
 
 pre {
 	background: transparent !important;
-	white-space : pre-wrap !important;
+	white-space: pre-wrap !important;
 }
 
 code {
@@ -98,11 +137,11 @@ section.mdx-code > pre.shiki > code {
 }
 
 .global-dropzone-border {
-    background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='12' ry='12' stroke='%23276ae9FF' stroke-width='3' stroke-dasharray='6%2c14' stroke-dashoffset='0' stroke-linecap='round'/%3e%3c/svg%3e");
+	background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='12' ry='12' stroke='%23276ae9FF' stroke-width='3' stroke-dasharray='6%2c14' stroke-dashoffset='0' stroke-linecap='round'/%3e%3c/svg%3e");
 }
 
 .global-dropzone-backdrop {
-	background: linear-gradient(0deg, rgb(2 0 36 / 85%) 45%, rgb(9 9 121 / 15%) 100%)
+	background: linear-gradient(0deg, rgb(2 0 36 / 85%) 45%, rgb(9 9 121 / 15%) 100%);
 }
 
 [data-rehype-pretty-code-figure] code {
