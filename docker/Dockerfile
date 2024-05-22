@@ -1,6 +1,6 @@
 FROM node:20-alpine as builder
 
-RUN apk add --no-cache libc6-compat git
+RUN apk update && apk add --no-cache libc6-compat git
 
 WORKDIR /app
 COPY . .
