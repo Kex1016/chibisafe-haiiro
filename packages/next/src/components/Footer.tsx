@@ -20,9 +20,18 @@ export function SiteFooter({ className = '' }: { readonly className?: string }) 
 						>
 							Pitu
 						</a>
-						. The source code is available on{' '}
+						. Modified by{' '}
+            <a
+              href="https://haiiro.moe/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium underline underline-offset-4"
+            >
+              cakes
+            </a>
+            . The source code is available on{' '}
 						<a
-							href="https://github.com/chibisafe/chibisafe"
+							href="https://github.com/Kex1016/chibisafe-haiiro"
 							target="_blank"
 							rel="noopener noreferrer"
 							className="font-medium underline underline-offset-4"
