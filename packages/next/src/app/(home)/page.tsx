@@ -77,8 +77,8 @@ export default async function Home() {
 							id="haiiro"
 							className="!leading-[0] text-4xl lg:text-8xl font-bold w-full text-center flex flex-col items-center justify-center py-10"
 						>
-							<div className="en">haiiro safe</div>
-							<div className="ja text-muted-foreground rotate-12">灰色</div>
+							<div className="en z-20">haiiro safe</div>
+							<div className="ja text-muted-foreground rotate-12 z-10">灰色</div>
 							<div className="subtitle mt-8 lg:mt-16 italic leading-tight text-lg">
 								Pretty and performant vault to save all your files.
 							</div>
